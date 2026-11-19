@@ -6,50 +6,36 @@
 <title>Protéger une page</title>
 <style>
 :root{
-  --marine:#1f3864; --marine-clair:#2f5597;
-  --fond:#f4f6fa; --carte:#fff; --bord:#dfe4ee; --bord-fort:#c3cbdb;
+  --marine:#1f3864; --fond:#f4f6fa; --carte:#fff; --bord:#dfe4ee; --bord-fort:#c3cbdb;
   --texte:#16213a; --doux:#5a6a8a; --tres-doux:#8793ab;
   --ok:#1f7a4d; --ok-fond:#e8f5ee; --alerte:#b3541e; --alerte-fond:#fdf0e6;
   --mauvais:#a32020; --mauvais-fond:#fbeaea;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --marine:#9cb6e8; --marine-clair:#b9ccf2;
-  --fond:#11151f; --carte:#192033; --bord:#2a344c; --bord-fort:#3b4866;
+@media (prefers-color-scheme:dark){:root{
+  --marine:#9cb6e8; --fond:#11151f; --carte:#192033; --bord:#2a344c; --bord-fort:#3b4866;
   --texte:#e8ecf6; --doux:#a3afc9; --tres-doux:#7d8aa6;
   --ok:#6ed79f; --ok-fond:#13301f; --alerte:#f0a76a; --alerte-fond:#2f2114;
   --mauvais:#f08a8a; --mauvais-fond:#331818;
 }}
 *{box-sizing:border-box}
-body{
-  margin:0; padding:26px 16px 70px; background:var(--fond); color:var(--texte);
-  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-}
+body{margin:0; padding:26px 16px 70px; background:var(--fond); color:var(--texte);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
 .page{max-width:660px; margin:0 auto}
 h1{font-size:21px; margin:0 0 4px; letter-spacing:-.01em}
 h2{font-size:15px; margin:0 0 3px}
 .sous{color:var(--doux); font-size:13.5px; margin:0 0 20px}
-.carte{
-  background:var(--carte); border:1px solid var(--bord); border-radius:10px;
-  padding:17px; margin-bottom:14px;
-  box-shadow:0 1px 2px rgba(22,33,58,.06), 0 4px 14px rgba(22,33,58,.05);
-}
+.carte{background:var(--carte); border:1px solid var(--bord); border-radius:10px; padding:17px;
+  margin-bottom:14px; box-shadow:0 1px 2px rgba(22,33,58,.06), 0 4px 14px rgba(22,33,58,.05)}
 .etape{display:flex; gap:11px; align-items:baseline}
-.num{
-  flex:0 0 auto; width:21px; height:21px; border-radius:50%; background:var(--marine);
-  color:var(--carte); display:grid; place-items:center; font-size:12px; font-weight:700;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .num{color:#11151f}}
+.num{flex:0 0 auto; width:21px; height:21px; border-radius:50%; background:var(--marine);
+  color:var(--carte); display:grid; place-items:center; font-size:12px; font-weight:700}
 label{display:block; font-size:12.5px; font-weight:600; color:var(--doux); margin:12px 0 4px}
-input[type=text],input[type=password],input[type=file]{
-  width:100%; padding:9px 11px; border:1px solid var(--bord-fort); border-radius:8px;
-  background:var(--carte); color:var(--texte); font:inherit; font-size:14px;
-}
+input[type=text],input[type=password],input[type=file]{width:100%; padding:9px 11px;
+  border:1px solid var(--bord-fort); border-radius:8px; background:var(--carte);
+  color:var(--texte); font:inherit; font-size:14px}
 input:focus{outline:2px solid var(--marine); outline-offset:-1px}
-button{
-  font:inherit; cursor:pointer; background:var(--marine); border:1px solid var(--marine);
-  color:var(--carte); border-radius:8px; padding:9px 16px; font-weight:600; font-size:14px;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button{color:#11151f}}
+button{font:inherit; cursor:pointer; background:var(--marine); border:1px solid var(--marine);
+  color:var(--carte); border-radius:8px; padding:9px 16px; font-weight:600; font-size:14px}
 button:disabled{opacity:.45; cursor:default}
 .msg{padding:10px 13px; border-radius:8px; font-size:13.5px; margin-top:13px}
 .msg.g{background:var(--ok-fond); color:var(--ok)}
@@ -64,59 +50,52 @@ b{font-weight:650}
 <body>
 <div class="page">
   <h1>Protéger une page</h1>
-  <p class="sous">Chiffre un fichier HTML avec un mot de passe. Le fichier produit
-     ne contient plus votre page en clair : sans le mot de passe, il n'y a rien à lire,
-     même en ouvrant le code source sur GitHub.</p>
+  <p class="sous">Chiffre un fichier HTML avec un mot de passe. Le fichier produit ne contient
+     plus votre page en clair : sans le mot de passe, il n'y a rien à lire, même en ouvrant
+     le code source sur GitHub.</p>
 
-  <div class="carte">
-    <div class="etape"><span class="num">1</span><div style="flex:1">
-      <h2>La page à protéger</h2>
-      <p class="note">Par exemple <b>Altesia_RH_competences.html</b>.</p>
-      <input type="file" id="src" accept=".html,.htm">
-    </div></div>
-  </div>
+  <div class="carte"><div class="etape"><span class="num">1</span><div style="flex:1">
+    <h2>La page à protéger</h2>
+    <p class="note">Par exemple <b>Altesia_RH_competences.html</b>.</p>
+    <input type="file" id="src" accept=".html,.htm">
+  </div></div></div>
 
-  <div class="carte">
-    <div class="etape"><span class="num">2</span><div style="flex:1">
-      <h2>Le mot de passe</h2>
-      <p class="note">Il ne sort pas de cette page et n'est écrit nulle part.
-         Personne ne peut le retrouver, moi non plus : s'il est perdu, le fichier
-         protégé est définitivement illisible. Gardez l'original de côté.</p>
-      <label for="mdp">Mot de passe</label>
-      <input type="password" id="mdp" autocomplete="new-password">
-      <label for="mdp2">Confirmation</label>
-      <input type="password" id="mdp2" autocomplete="new-password">
-      <div id="force" class="note"></div>
-    </div></div>
-  </div>
+  <div class="carte"><div class="etape"><span class="num">2</span><div style="flex:1">
+    <h2>Le mot de passe</h2>
+    <p class="note">Il ne sort pas de cette page et n'est écrit nulle part. Personne ne peut le
+       retrouver, moi non plus : s'il est perdu, le fichier protégé est définitivement illisible.
+       Gardez l'original de côté.</p>
+    <label for="mdp">Mot de passe</label>
+    <input type="password" id="mdp" autocomplete="new-password">
+    <label for="mdp2">Confirmation</label>
+    <input type="password" id="mdp2" autocomplete="new-password">
+    <div id="force" class="note"></div>
+  </div></div></div>
 
-  <div class="carte">
-    <div class="etape"><span class="num">3</span><div style="flex:1">
-      <h2>Le fichier à déposer sur GitHub</h2>
-      <label for="nom">Nom du fichier produit</label>
-      <input type="text" id="nom" value="index.html">
-      <p class="note">GitHub Pages sert <b>index.html</b> à l'adresse du dépôt.</p>
-      <div style="margin-top:14px"><button id="go" disabled>Protéger la page</button></div>
-      <div id="sortie"></div>
-    </div></div>
-  </div>
+  <div class="carte"><div class="etape"><span class="num">3</span><div style="flex:1">
+    <h2>Le fichier à déposer sur GitHub</h2>
+    <label for="nom">Nom du fichier produit</label>
+    <input type="text" id="nom" value="index.html">
+    <p class="note">GitHub Pages sert <b>index.html</b> à l'adresse du dépôt.</p>
+    <div style="margin-top:14px"><button id="go" disabled>Protéger la page</button></div>
+    <div id="sortie"></div>
+  </div></div></div>
 
   <div class="carte">
     <h2>Ce que cette protection fait, et ne fait pas</h2>
     <ul>
-      <li><b>Le contenu est chiffré</b> (AES-GCM 256 bits, clé dérivée du mot de passe
-          par PBKDF2, 310 000 itérations). Le fichier publié ne contient que du texte
-          chiffré : ni votre référentiel, ni votre code ne sont lisibles sans le mot de passe.</li>
-      <li><b>Le mot de passe doit être long.</b> Le fichier étant public, il peut être
-          essayé hors ligne, autant de fois que voulu. Une phrase de quatre ou cinq mots
-          vaut mieux qu'un mot compliqué de huit caractères.</li>
-      <li><b>Qui a le mot de passe a tout.</b> Il peut enregistrer la page déchiffrée
-          et la rediffuser. Changer le mot de passe suppose de reprotéger la page et de
-          la redéposer — les copies déjà téléchargées, elles, restent lisibles.</li>
-      <li><b>Les données saisies dans l'app ne sont pas concernées :</b> elles restent
-          dans le navigateur de la machine, jamais dans le fichier ni sur GitHub.</li>
-      <li>Pour un secret qui engage le cabinet, cela reste une page publique chiffrée,
-          pas un espace privé. Un dépôt privé ou un partage interne reste plus sûr.</li>
+      <li><b>Le contenu est chiffré</b> (AES-GCM 256 bits, clé dérivée du mot de passe par
+          PBKDF2, 310 000 itérations). Le fichier publié ne contient que du texte chiffré.</li>
+      <li><b>Le mot de passe doit être long.</b> Le fichier étant public, il peut être essayé
+          hors ligne sans limite. Une phrase de quatre ou cinq mots vaut mieux qu'un mot
+          compliqué de huit caractères.</li>
+      <li><b>Qui a le mot de passe a tout.</b> Il peut enregistrer la page déchiffrée et la
+          rediffuser. Changer le mot de passe suppose de reprotéger et redéposer la page ;
+          les copies déjà téléchargées restent lisibles.</li>
+      <li><b>Les données saisies dans l'app ne sont pas concernées :</b> elles restent dans le
+          navigateur ou dans votre dossier de sauvegarde, jamais dans le fichier publié.</li>
+      <li>Pour un secret qui engage le cabinet, cela reste une page publique chiffrée, pas un
+          espace privé. Un dépôt privé ou un partage interne reste plus sûr.</li>
     </ul>
   </div>
 </div>
@@ -124,7 +103,18 @@ b{font-weight:650}
 <script>
 "use strict";
 const $ = s => document.getElementById(s);
-const b64 = u8 => btoa(String.fromCharCode(...u8));
+
+/* Conversion par tranches : passer 160 000 octets d'un coup en arguments
+   dépasse la pile d'appels du navigateur — c'est ce qui faisait échouer
+   la protection des gros fichiers. */
+function enBase64(u8){
+  let s = "";
+  const pas = 0x8000;
+  for(let i = 0; i < u8.length; i += pas){
+    s += String.fromCharCode.apply(null, u8.subarray(i, i + pas));
+  }
+  return btoa(s);
+}
 
 let source = null;
 
@@ -153,6 +143,8 @@ $("go").addEventListener("click", async () => {
   bouton.disabled = true;
   sortie.innerHTML = '<div class="msg o">Chiffrement en cours…</div>';
   try{
+    if(!window.crypto || !crypto.subtle)
+      throw new Error("ce navigateur ne propose pas le chiffrement nécessaire");
     const mdp = $("mdp").value;
     const sel = crypto.getRandomValues(new Uint8Array(16));
     const iv = crypto.getRandomValues(new Uint8Array(12));
@@ -165,12 +157,16 @@ $("go").addEventListener("click", async () => {
     const chiffre = new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM", iv},
       cle, new TextEncoder().encode(source.texte)));
 
-    const charge = JSON.stringify({s:b64(sel), i:b64(iv), n:iterations, d:b64(chiffre)});
+    const charge = JSON.stringify({s:enBase64(sel), i:enBase64(iv), n:iterations,
+                                   d:enBase64(chiffre)});
     const html = gabarit(charge);
+
     // Contrôle avant téléchargement : un extrait du cœur de la page d'origine
     // ne doit se retrouver nulle part dans le fichier produit.
-    const milieu = source.texte.slice(Math.floor(source.texte.length/2), Math.floor(source.texte.length/2)+180);
-    if(milieu && html.includes(milieu)) throw new Error("le contenu en clair subsiste dans le fichier produit");
+    const m = Math.floor(source.texte.length/2);
+    const milieu = source.texte.slice(m, m + 180);
+    if(milieu && html.includes(milieu))
+      throw new Error("le contenu en clair subsiste dans le fichier produit");
 
     const nom = ($("nom").value || "index.html").replace(/[^\w.\-]+/g, "_");
     const u = URL.createObjectURL(new Blob([html], {type:"text/html;charset=utf-8"}));
@@ -178,8 +174,8 @@ $("go").addEventListener("click", async () => {
     a.href = u; a.download = nom; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(u), 4000);
     sortie.innerHTML = '<div class="msg g"><b>' + nom + "</b> est prêt — "
-      + Math.round(html.length/1024) + " Ko. Déposez-le sur GitHub, et gardez l'original "
-      + "<b>" + source.nom + "</b> de votre côté : lui seul reste modifiable.</div>";
+      + Math.round(html.length/1024) + " Ko. Déposez-le sur GitHub, et gardez l'original <b>"
+      + source.nom + "</b> de votre côté : lui seul reste modifiable.</div>";
   }catch(err){
     sortie.innerHTML = '<div class="msg r">Échec : ' + err.message + "</div>";
   }
@@ -210,7 +206,6 @@ input{width:100%;padding:10px 12px;border:1px solid var(--bord);border-radius:8p
 input:focus{outline:2px solid var(--marine);outline-offset:-1px}
 button{width:100%;margin-top:11px;padding:10px;border:1px solid var(--marine);background:var(--marine);
  color:var(--carte);border-radius:8px;font:inherit;font-weight:600;font-size:15px;cursor:pointer}
-@media (prefers-color-scheme:dark){button{color:#11151f}}
 button:disabled{opacity:.5;cursor:default}
 .e{color:var(--mauvais);font-size:13px;margin-top:11px;min-height:19px}
 </style>
@@ -226,8 +221,8 @@ button:disabled{opacity:.5;cursor:default}
 <script>
 "use strict";
 var C = ${charge};
-var u8 = function(b){ var s = atob(b), a = new Uint8Array(s.length);
-  for(var i=0;i<s.length;i++) a[i]=s.charCodeAt(i); return a; };
+function u8(b){ var s = atob(b), a = new Uint8Array(s.length);
+  for(var i = 0; i < s.length; i++) a[i] = s.charCodeAt(i); return a; }
 document.getElementById("f").addEventListener("submit", async function(ev){
   ev.preventDefault();
   var b = document.getElementById("b"), e = document.getElementById("e");
@@ -246,7 +241,7 @@ document.getElementById("f").addEventListener("submit", async function(ev){
     document.open(); document.write(html); document.close();
   }catch(err){
     e.textContent = err && err.message === "indisponible"
-      ? "Ce navigateur ne sait pas déchiffrer la page. Il faut une connexion sécurisée (https) et un navigateur récent."
+      ? "Ce navigateur ne sait pas déchiffrer la page. Il faut un navigateur récent."
       : "Mot de passe incorrect.";
     b.disabled = false; b.textContent = "Ouvrir";
     document.getElementById("m").select();
